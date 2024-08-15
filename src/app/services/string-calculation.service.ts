@@ -14,6 +14,8 @@ export class StringCalculationService {
       return 0;
     }
 
-    return parseInt(numbers);
+    let numArr = numbers.split(",");
+
+    return eval(numArr.join("+"));
   }
 }
