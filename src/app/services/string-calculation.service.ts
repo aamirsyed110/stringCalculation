@@ -6,4 +6,14 @@ import { Injectable } from '@angular/core';
 export class StringCalculationService {
 
   constructor() { }
+
+
+  add(numbers:string):number{
+
+    if(!numbers){
+      return 0;
+    }
+
+    return parseInt(numbers);
+  }
 }
