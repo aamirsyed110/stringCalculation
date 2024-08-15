@@ -13,8 +13,8 @@ export class StringCalculationService {
     if(!numbers){
       return 0;
     }
-
-    let numArr = numbers.split(",");
+    let regExp = /,|\n/;
+    let numArr = numbers.split(regExp);
 
     return eval(numArr.join("+"));
   }
