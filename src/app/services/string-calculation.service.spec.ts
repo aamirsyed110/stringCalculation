@@ -33,4 +33,8 @@ describe('StringCalculationService', () => {
   it('should handle new lines between numbers', () => {
     expect(service.add('1\n2,3')).toEqual(6);
   });
+
+  it('should support different delimiters', () => {
+    expect(service.add('//;\n1;2')).toEqual(3);
+  });
 });
