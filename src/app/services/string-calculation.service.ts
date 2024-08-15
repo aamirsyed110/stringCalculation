@@ -28,7 +28,15 @@ export class StringCalculationService {
     }
 
     // splting the number using regex
-    let numArr = numbers.split(regExp);
+    let numArr = numbers.split(regExp).map(Number);
+
+    // filter the negative value
+    let negativeValArr = numArr.filter(x => x < 0); 
+
+    // if negative number present throw error
+    if(negativeValArr && negativeValArr.length > 0){
+      throw new Error(`Negative numbers not allowed: ${negativeValArr.join(', ')}`);
+    }
 
     return eval(numArr.join("+"));
   }

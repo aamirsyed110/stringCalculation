@@ -37,4 +37,8 @@ describe('StringCalculationService', () => {
   it('should support different delimiters', () => {
     expect(service.add('//;\n1;2')).toEqual(3);
   });
+
+  it('should throw an exception for negative numbers', () => {
+    expect(() => service.add('1,-2,-3')).toThrowError('Negative numbers not allowed: -2, -3');
+  });
 });
