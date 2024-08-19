@@ -30,7 +30,7 @@ export class StringCalculationService {
       throw new Error(`Negative numbers not allowed: ${negativeValArr.join(', ')}`);
     }
 
-    return eval(numArr.join("+"));
+    return numArr.reduce((sum, current) => sum + current, 0);
   }
 
   private extractDelimiter(input: string): RegExp {

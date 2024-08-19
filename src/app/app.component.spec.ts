@@ -44,4 +44,21 @@ describe('AppComponent', () => {
     expect(component.errorMessage).toBe('Negative numbers not allowed: -2');
   });
 
+  it('should display the result in the template', () => {
+    component.inputString = '1,2';
+    component.calculate();
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('div')?.textContent).toContain('Result: 3');
+  });
+
+  it('should display an error message in the template', () => {
+    component.inputString = '-1,2';
+    component.calculate();
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('div')?.textContent).toContain('Negative numbers not allowed: -1');
+  });
+
+
 });
